@@ -1,49 +1,372 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f3f5fa;
+  color: #26344d;
+  min-height: 100vh;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.container {
+  max-width: 850px;
+  margin: 45px auto;
+  padding: 0 22px;
+}
+
+/* CABEÇALHO */
+
+.header {
+  background: linear-gradient(120deg, #1e3a70, #315db1);
+  color: white;
+  padding: 35px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 10px 25px rgba(36, 74, 145, 0.16);
+}
+
+.header-icon {
+  width: 55px;
+  height: 55px;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+}
+
+.subtitulo {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #c8d9ff;
+}
+
+.header h1 {
+  font-size: 29px;
+  margin: 8px 0;
+}
+
+.header p {
+  font-size: 13px;
+  color: #d9e5ff;
+}
+
+/* CARTÕES */
+
+.resumo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 23px 0;
+}
+
+.card {
+  background: white;
+  padding: 21px;
+  border-radius: 12px;
+  border: 1px solid #e9edf4;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  box-shadow: 0 3px 12px rgba(30, 50, 80, 0.03);
+}
+
+.card span {
+  font-size: 12px;
+  color: #718096;
+}
+
+.card strong {
+  font-size: 31px;
+}
+
+.card small {
+  color: #9aa5b5;
+  font-size: 11px;
+}
+
+.total strong {
+  color: #315db1;
+}
+
+.pendente strong {
+  color: #d99132;
+}
+
+.concluido strong {
+  color: #269b70;
+}
+
+/* PAINEL */
+
+.painel {
+  background: white;
+  padding: 27px;
+  border: 1px solid #e9edf4;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(30, 50, 80, 0.04);
+}
+
+.titulo-painel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.titulo-painel h2 {
+  font-size: 19px;
+  margin-bottom: 6px;
+}
+
+.titulo-painel p {
+  color: #929daf;
+  font-size: 12px;
+}
+
+.contador {
+  background: #edf3ff;
+  color: #315db1;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+}
+
+/* FORMULÁRIO */
+
+.formulario {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.formulario input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #e0e6ef;
+  background: #f9fafc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 13px;
+}
+
+.formulario input:focus {
+  border-color: #4774c5;
+}
+
+.formulario button {
+  border: none;
+  border-radius: 8px;
+  background: #315db1;
+  color: white;
+  padding: 0 17px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.formulario button:hover {
+  background: #24478d;
+}
+
+/* FILTROS */
+
+.filtros {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #edf0f5;
+  padding-bottom: 15px;
+}
+
+.filtros button {
+  border: none;
+  padding: 9px 14px;
+  border-radius: 7px;
+  background: transparent;
+  color: #7e8a9c;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.filtros button.ativo {
+  background: #eaf0fc;
+  color: #315db1;
+  font-weight: bold;
+}
+
+.filtros button span {
+  margin-left: 4px;
+}
+
+/* TAREFAS */
+
+.lista {
+  margin-top: 12px;
+}
+
+.tarefa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 12px;
+  border-bottom: 1px solid #edf0f5;
+  transition: 0.2s;
+}
+
+.tarefa:hover {
+  background: #f8faff;
+}
+
+.tarefa-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.tarefa-info input {
+  width: 17px;
+  height: 17px;
+  accent-color: #315db1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.tarefa-info span {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.riscada {
+  text-decoration: line-through;
+  color: #a3adbc;
+}
+
+.excluir {
+  border: none;
+  background: #fff0f0;
+  color: #d45c5c;
+  padding: 8px 11px;
+  border-radius: 6px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.excluir:hover {
+  background: #ffdddd;
+}
+
+/* LISTA VAZIA */
+
+.vazio {
+  text-align: center;
+  padding: 40px 15px;
+}
+
+.vazio-icon {
+  font-size: 35px;
+  color: #9eb4db;
+  margin-bottom: 12px;
+}
+
+.vazio h3 {
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.vazio p {
+  color: #9aa5b5;
+  font-size: 12px;
+}
+
+/* RODAPÉ */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  color: #a0a9b8;
+  font-size: 11px;
+  padding: 22px 5px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+  .container {
+    margin: 20px auto;
+    padding: 0 12px;
+  }
+
+  .header {
+    padding: 25px 18px;
+    gap: 13px;
+  }
+
+  .header h1 {
+    font-size: 23px;
+  }
+
+  .header p {
+    line-height: 1.5;
+  }
+
+  .header-icon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+  }
+
+  .resumo {
+    gap: 8px;
+  }
+
+  .card {
+    padding: 14px 10px;
+  }
+
+  .card span {
+    font-size: 10px;
+  }
+
+  .card strong {
+    font-size: 25px;
+  }
+
+  .card small {
+    font-size: 9px;
+  }
+
+  .painel {
+    padding: 19px 14px;
+  }
+
+  .formulario {
+    flex-direction: column;
+  }
+
+  .formulario button {
+    padding: 13px;
+  }
+
+  .filtros {
+    gap: 2px;
+  }
+
+  .filtros button {
+    padding: 9px 10px;
+  }
+
+  footer {
+    gap: 10px;
+    flex-wrap: wrap;
   }
 }
